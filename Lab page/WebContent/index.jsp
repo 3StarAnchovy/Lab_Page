@@ -70,7 +70,7 @@
 <div style="clear:both;"></div>
 </header>
 <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-   Copyright &copy; 정지혁 김지민 김성현 정선규 All Right Reserver  tel : 010-1111-2222 <br> 
+   Copyright &copy; 정지혁 홍지민 김성현 정선규 All Right Reserver  tel : 010-1111-2222 <br> 
    add : 이학관 207 <a href="./Map.jsp" class="btn btn-secondary" role="button" class="form-control"> 위치 보기  &raquo;</a>
 </footer>
 <!-- 제이쿼리 자바스크립트 추가하기 -->
