@@ -53,7 +53,7 @@
 			script.println("location.href = 'index.jsp' ");
 			script.println("</script>");
 			session.setAttribute("userID", user.getUserID()); 
-
+		//
 		}
 
 		//로그인 실패
