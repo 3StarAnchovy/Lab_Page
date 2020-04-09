@@ -73,13 +73,22 @@
 <section class="container mt-3"  style="max-width: 560px;"><!-- mt-3 //위쪽으로 마진 3만큼(공백) -->
 
     <div class="text-center mb-4">
-       <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>    
+       <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
     </div>
-   <form method="post" action="./JoinAction.jsp">
+   
+   <form method="post" action="./JoinAction.jsp"> <!-- join form -->
       <div class="form-group">
          <label>아이디</label>
          <input type="text" name="userID" class="form-control" placeholder="ID">
       </div>
       <div class="form-group">
          <label>비밀 번호</label>
-         <input type="password" name="userPassword" class="form-control" placeholder="Password">   
+         <input type="password" name="userPassword" class="form-control" placeholder="Password">
+      </div>
+      
+      <div class="form-group">
+         <label>이 름</label>
+         <input type="text" name="userName" class="form-control" placeholder="Name">
+      </div>
+      <p><input type = "submit" value = "전송">
+    </form>
