@@ -8,6 +8,16 @@
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 </head>
 <body>
+<%
+	String userID=null;
+	if(session.getAttribute("userID")!=null)
+	{
+   		userID=(String)session.getAttribute("userID");
+	}
+	System.out.println("gasdf");
+
+%>
+
 <header style=" width: 100%; background-color: #515963">
 <a href="Index.jsp"><img id="logo" src="./resources/images/pineapple.png" alt="FANTA" style="display: block; width: 100px; margin: 0 auto; clear: both; align:center; line-height: 104px;"/></a>
 <a class="navbar-brand" href="Index.jsp" style="display: block; width: 100px; margin: 0 auto; clear: both; align:center; line-height: 40px;">FANTA</a>
@@ -81,6 +91,8 @@
 	<img width="75" height="75" src="./resources/images/AlbumImages/Example.PNG" style="clear:both;"/>
 	<p style="text-align:center;">정지혁님 안녕하세요.</p>
 </div>
+
+
 <div class="container">
    <div class="row">
       <table class="table table-striped col-6" style="text-align: center; border: 1px solid #dddddd">
