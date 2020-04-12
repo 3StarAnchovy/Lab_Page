@@ -23,7 +23,7 @@
 		<a href="Index.jsp"><img id="logo"
 			src="./resources/images/pineapple.png" alt="FANTA"
 			style="display: block; width: 100px; margin: 0 auto; clear: both; align: center; line-height: 104px;" /></a>
-		<a class="navbar-brand" href="Index.jsp"
+		<a class="navbar-brand" href="index.jsp"
 			style="display: block; width: 100px; margin: 0 auto; clear: both; align: center; line-height: 40px;">FANTA</a>
 		<nav class="navbar navbar-expand-lg navbar-light bg-#515963">
 			<p>
@@ -36,7 +36,7 @@
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link"
-						href="Index.jsp">메인</a></li>
+						href="index.jsp">메인</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" id="dropdown"
 						data-toggle="dropdown"> 회원 관리 </a>

@@ -32,16 +32,15 @@
 				if (session.getAttribute("userID") != null) {
 					userID = (String) session.getAttribute("userID");
 				}
-				System.out.println("gasdf");
-				
-				if(userID == "admin")
-				{
+				System.out.println(userID);
+
+				if (userID.equals("admin")) {
 			%>
 			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal"
 				href="#registerModal">공지 하기</a>
 			<%
 				} //관리자면 공지하기 버튼 출력
-				%>
+			%>
 		</form>
 
 		<%
