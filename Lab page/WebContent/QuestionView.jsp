@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- 부트스트랩 CSS 추가하기 -->
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css">   
 </head>
 <body>
 <header style=" width: 100%; background-color: #515963">
@@ -29,7 +29,7 @@
           <a class="dropdown-item" href="Login.jsp">로그인</a>
           <a class="dropdown-item" href="Join.jsp">회원가입</a>
           <a class="dropdown-item" href="Logout.jsp">로그아웃</a>
-		  <a class="dropdown-item" href="#">일정 관리</a>
+          <a class="dropdown-item" href="#">일정 관리</a>
         </div>
        </li>
        <li class="nav-item dropdown">
@@ -38,7 +38,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdown">
           <a class="dropdown-item" href="Task.jsp">과제 게시판</a>
-          <a class="dropdown-item" href="Project.jsp">프로젝트 게시판</a>
+          <a class="dropdown-item" href="#">프로젝트 게시판</a>
           <a class="dropdown-item" href="#">코드 게시판</a>
         </div>
        </li>
@@ -73,25 +73,81 @@
 </header>
 
 <section class="container mt-3"  style="max-width: 560px;"><!-- mt-3 //위쪽으로 마진 3만큼(공백) -->
-    <div class="text-center mb-4">
-       <h1 class="h3 mb-3 font-weight-normal">Submit Your Task</h1>    
-    </div>
-	<form method="post" action="./Submit_TaskAction.jsp">
-		<div class="form-group">
-			<label>제출일</label>
-			<input type="text" name="TaskDate" class="form-control" placeholder="Date">
-		</div>
-		<div class="form-group">
-			<label>제목</label>
-			<input type="email" name="TaskTitle" class="form-control" placeholder="Title">	
-		</div>
-         <div class="form-group">
-               <label>내용</label>
-              <textarea name="TaskContent" class="form-control" maxlength="5000" style="height: 180px"></textarea>
-          </div>
-		<button type="submit" class="btn btn-primary">제출</button>
-		<input type="reset" class="btn btn-primary " value="취소 " onclick="reset()" >
-	</form>
+<p><br><br><br><br></p>
+<div class="container">
+		<div class="row">
+ 			<table class="table table-striped form-control" style="text-align: center; border: 1px solid #dddddd">
+ 				<tbody>
+ 					<tr>
+ 						<td colspan="2">Java 15장 20번 질문입니다.</td>
+  					</tr>
+ 					<tr>
+ 					 	<td>정지혁</td>
+ 						<td colspan="2"> 2020년 04월 10일 </td>
+ 					</tr>
+ 					<tr>
+ 						<td colspan="2" style="min-height: 200px; text-align: left;">
+<pre>
+ public class MyPoint {
+
+   int x;
+   int y;
+
+   MyPoint(int x , int y){
+      this.x=x;
+      this.y=y;
+   }
+   public String toString() {
+      return "("+x+","+y+")";
+   }
+   public boolean equals(Object obj) {
+      MyPoint p = (MyPoint)obj;
+      if(x==p.x && y==p.y)
+         return true;
+      else
+         return false;
+   }
+   public static void main(String[] args) {
+      MyPoint p = new MyPoint(3,50);
+      MyPoint q = new MyPoint(4,50);
+      System.out.println(p);
+      System.out.println(q);
+      if(p.equals(q))
+         System.out.println("같은점");
+      else
+         System.out.println("다른점");
+   }
+}
+                   </pre>
+ 						</td>
+ 					</tr>
+ 				</tbody>
+ 			</table>
+ 		</div>
+</div>
+    
+<div class="container mt-3">
+   <div class="row">
+      <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+         <thead> <!-- 테이블의 가장 윗줄 -->
+            <tr>
+                <th style="background-color:#eeeee; text-align: left;">답을 남겨주세요.</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>
+               <form method ="post" action = "AnswerAction.jsp?QuestionID=#">
+                  <textarea class="form-control" placeholder="Please Write a Answer" name="Answer_Content" maxlength="800" style="height: 75px;"></textarea>
+                    <a href="Question.jsp" class="btn btn-primary mt-2">목록</a>
+                    <input type="submit" class="btn btn-primary pull-right mt-2" value="작성">         
+               </form>
+               </th>
+           </tr>
+          </tbody>
+      </table>
+   </div>
+</div>
 </section>
 
 <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
