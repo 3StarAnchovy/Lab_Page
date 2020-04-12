@@ -38,7 +38,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdown">
           <a class="dropdown-item" href="Task.jsp">과제 게시판</a>
-          <a class="dropdown-item" href="Project.jsp">프로젝트 게시판</a>
+          <a class="dropdown-item" href="#">프로젝트 게시판</a>
           <a class="dropdown-item" href="#">코드 게시판</a>
         </div>
        </li>
@@ -72,27 +72,49 @@
 <div style="clear:both;"></div>
 </header>
 
-<section class="container mt-3"  style="max-width: 560px;"><!-- mt-3 //위쪽으로 마진 3만큼(공백) -->
-    <div class="text-center mb-4">
-       <h1 class="h3 mb-3 font-weight-normal">Submit Your Task</h1>    
-    </div>
-	<form method="post" action="./Submit_TaskAction.jsp">
-		<div class="form-group">
-			<label>제출일</label>
-			<input type="text" name="TaskDate" class="form-control" placeholder="Date">
+<section class="container">
+<div class="card bg-light mt-3">
+	<div class="card-header bg-light">
+		<div class="row">
+			<div class="col-8 text-left">이름, 이름, 이름&nbsp;<small>2020.04.05~2020.05.20</small></div>
 		</div>
-		<div class="form-group">
-			<label>제목</label>
-			<input type="email" name="TaskTitle" class="form-control" placeholder="Title">	
+	</div>
+	<div class="card-body">
+		<h4 class="card-title">프로젝트 명</h4>
+		<p class="card-text"> 설명 <br>Ex) 연구실 페이지 만들기 프로젝트</p>
+		<div class="row">
+			<div class="col-9 text-left">
+				<span><small>조회 (15)</small></span>
+			</div>
+			<div class="col-3 text-right">
+				<a href="Submit_Project.jsp" class="btn btn-secondary" role="button" class="form-control">제출 하기 &raquo;</a>
+			</div>
 		</div>
-         <div class="form-group">
-               <label>내용</label>
-              <textarea name="TaskContent" class="form-control" maxlength="5000" style="height: 180px"></textarea>
-          </div>
-		<button type="submit" class="btn btn-primary">제출</button>
-		<input type="reset" class="btn btn-primary " value="취소 " onclick="reset()" >
-	</form>
-</section>
+	</div>
+</div>
+</section> 	
+
+<div class="container">
+ 	<div class="card-bg-light mt-3">
+ 		<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+ 			<thead> <!-- 테이블의 가장 윗줄 -->
+ 				<tr>
+ 				 <th style="background-color:#eeeee; text-align: center;">파일명</th>
+ 				 <th style="background-color:#eeeee; text-align: center;">제출자</th>
+ 				 <th style="background-color:#eeeee; text-align: center;">제출일</th>
+ 				</tr>			
+ 			</thead>
+ 			<tbody>
+ 				<tr>
+ 					<td><a href="ProjectCode.jsp?ProjectID=#">Main.jsp</a></td>
+ 					<td>Jihyeok123</td>
+ 					<td>2019.04.06</td>
+ 				</tr>
+
+ 			</tbody>
+ 		</table>
+ 	</div>
+</div>
 
 <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
 	Copyright &copy; 정지혁 홍지민 김성현 정선규 All Right Reserver  tel : 010-1111-2222 <br> 

@@ -38,7 +38,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdown">
           <a class="dropdown-item" href="Task.jsp">과제 게시판</a>
-          <a class="dropdown-item" href="Project.jsp">프로젝트 게시판</a>
+          <a class="dropdown-item" href="#">프로젝트 게시판</a>
           <a class="dropdown-item" href="#">코드 게시판</a>
         </div>
        </li>
@@ -74,9 +74,9 @@
 
 <section class="container mt-3"  style="max-width: 560px;"><!-- mt-3 //위쪽으로 마진 3만큼(공백) -->
     <div class="text-center mb-4">
-       <h1 class="h3 mb-3 font-weight-normal">Submit Your Task</h1>    
+       <h1 class="h3 mb-3 font-weight-normal">Submit Your Project</h1>    
     </div>
-	<form method="post" action="./Submit_TaskAction.jsp">
+	<form method="post" action="./Submit_ProjectAction.jsp">
 		<div class="form-group">
 			<label>제출일</label>
 			<input type="text" name="TaskDate" class="form-control" placeholder="Date">
@@ -86,8 +86,8 @@
 			<input type="email" name="TaskTitle" class="form-control" placeholder="Title">	
 		</div>
          <div class="form-group">
-               <label>내용</label>
-              <textarea name="TaskContent" class="form-control" maxlength="5000" style="height: 180px"></textarea>
+            <label>코드</label>
+            <textarea name="TaskContent" class="form-control" maxlength="10000" style="height: 180px"></textarea>
           </div>
 		<button type="submit" class="btn btn-primary">제출</button>
 		<input type="reset" class="btn btn-primary " value="취소 " onclick="reset()" >
