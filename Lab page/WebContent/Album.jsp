@@ -58,14 +58,19 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="./NoticeAction.jsp" method="post">
+					<form enctype="multipart/form-data" action="./AlbumAction.jsp"
+						method="post">
 						<div class="form-group col-sm-12">
-							<label>제목</label> <input type="text" name="NoticeTitle"
+							<label>제목</label> <input type="text" name="AlbumTitle"
 								class="form-control" maxlength="40" placeholder="Up to 40">
 						</div>
 						<div class="form-group">
+							<label>업로드</label> <input type="file" name="file"
+								class="form-control" maxlength="2048">
+						</div>
+						<div class="form-group">
 							<label>내용</label>
-							<textarea name="NoticeContent" class="form-control"
+							<textarea name="AlbumContent" class="form-control"
 								maxlength="2048" style="height: 180px"></textarea>
 						</div>
 						<div class="modal-footer">
@@ -79,7 +84,7 @@
 		</div>
 	</div>
 	<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-		Copyright &copy; 정지혁 김지민 김성현 정선규 All Right Reserver tel :
+		Copyright &copy; 정지혁 홍지민 김성현 정선규 All Right Reserver tel :
 		010-1111-2222 <br> add : 이학관 207 <a href="./Map.jsp"
 			class="btn btn-secondary" role="button" class="form-control"> 위치
 			보기 &raquo;</a>

@@ -4,7 +4,7 @@
 <%@ page import="java.util.Enumeration"%>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@ page import="com.oreilly.servlet.MultipartRequest"%>
-<%@ page import="bbs.BbsDAO"%>
+<%@ page import="album.AlbumDAO"%>
 <%@ page import="java.io.PrintWriter"%>
 <!DOCTYPE html>
 <%
@@ -15,16 +15,16 @@
 
 <!-- 한명의 회원정보를 담는 user클래스를 자바 빈즈로 사용 / scope:페이지 현재의 페이지에서만 사용-->
 
-<jsp:useBean id="bbs" class="bbs.bbs" scope="page" />
+<jsp:useBean id="album" class="album.album" scope="page" />
 
 <!-- // Bbs bbs = new Bbs(); -->
 
-<jsp:setProperty name="bbs" property="bbsTitle" /><!-- bbs.setBbsTitle(requrst) -->
-<jsp:setProperty name="bbs" property="fileName" />
-<jsp:setProperty name="bbs" property="bbsContent" />
+<jsp:setProperty name="album" property="bbsTitle" /><!-- bbs.setBbsTitle(requrst) -->
+<jsp:setProperty name="album" property="fileName" />
+<jsp:setProperty name="album" property="bbsContent" />
 
 <%
-	System.out.println(bbs);
+	System.out.println(album);
 %>
 
 <html>
@@ -56,8 +56,8 @@
 		String thumbnailName = multipartRequest.getOriginalFileName("thumbnail");
 		String thumbnailRealName = multipartRequest.getFilesystemName("thumbnail");
 
-		String a = multipartRequest.getParameter("NoticeTitle");
-		String b = multipartRequest.getParameter("NoticeContent");
+		String a = multipartRequest.getParameter("AlbumTitle");
+		String b = multipartRequest.getParameter("AlbumContent");
 		System.out.println(a + b); //파라미터 건너오는거 체크
 		if (session.getAttribute("userID") != null) {//유저아이디이름으로 세션이 존재하는 회원들은 
 			userID = (String) session.getAttribute("userID");//유저아이디에 해당 세션값을 넣어준다.
@@ -66,7 +66,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요.')");
-			script.println("location.href = 'login.jsp'");
+			script.println("location.href = 'Login.jsp'");
 			script.println("</script>");
 		} else {
 
@@ -81,12 +81,12 @@
 				script.println("</script>");
 
 			} else {
-				bbs.setBbsTitle(a);
-				bbs.setBbsContent(b);
-				BbsDAO BbsDAO = new BbsDAO();
+				album.setBbsTitle(a);
+				album.setBbsContent(b);
+				AlbumDAO BbsDAO = new AlbumDAO();
 
-				int result = BbsDAO.write(bbs.getBbsTitle(), userID, bbs.getBbsContent(), bbs.getHit(),
-						bbs.getRef(), fileName, fileRealName, bbs.getFileSrc(), thumbnailName, thumbnailRealName);
+				int result = BbsDAO.write(album.getBbsTitle(), userID, album.getBbsContent(), album.getHit(),
+						album.getRef(), fileName, fileRealName, album.getFileSrc(), thumbnailName, thumbnailRealName);
 
 				if (result == -1) {
 
