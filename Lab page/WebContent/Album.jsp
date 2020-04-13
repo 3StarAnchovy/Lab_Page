@@ -1,5 +1,11 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ page import="album.album"%>
+<%@ page import="album.AlbumDAO"%>
+<!-- src 받아오기 위한 다오 import -->
+<%@ page import="java.util.ArrayList"%>
+
 <!doctype html>
 <html>
 <head>
@@ -20,22 +26,41 @@
 			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal"
 				href="#registerModal">등록 하기</a>
 		</form>
+		<%
+			int pageNumber = 1; //기본 페이지 넘버
+			//페이지넘버값이 있을때
+			//if (request.getParameter("pageNumber") != null) {
+			//pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+			//}
+			album album = new album();
+			AlbumDAO AlbumDAO = new AlbumDAO();
+
+			ArrayList<album> list = AlbumDAO.getList(pageNumber);
+			String[] fileRealName = new String[list.size()];
+
+			for (int i = 0; i < list.size(); i++) {
+				fileRealName[i] = list.get(i).getFileRealName();
+				String src = "upload/" + fileRealName[i];
+				System.out.println(src); //경로 체크
+		%>
 		<div class="card bg-light mt-3">
+			<!-- 여기 수정 // 지민 -->
 			<div class="card-header bg-light">
 				<div class="row">
 					<div class="col-8 text-left">
-						정지혁&nbsp;<small>2020.04.05</small>
+						<%=list.get(i).getUserID()%>&nbsp;<small>2020.04.05</small>
 					</div>
 				</div>
 			</div>
 			<div class="card-body">
 				<a href="./Albumview.jsp?AlbumID=#"><img width="300"
-					height="200" src="./resources/images/AlbumImages/Example.PNG" /> </a>
-				<h4 class="card-title">~~일 캡쳐함</h4>
-				<p class="card-text">ㅎㅇㅎㅇ</p>
+					height="200" src=<%=src%>></a>
+				<h4 class="card-title"><%=list.get(i).getBbsTitle()%></h4>
+				<p class="card-text"><%=list.get(i).getBbsContent()%></p>
 				<div class="row">
 					<div class="col-9 text-left">
-						<span><small>조회 (15)</small></span>
+						<span><small>조회 (<%=list.get(i).getHit()%>)
+						</small></span>
 					</div>
 					<div class="col-3 text-right">
 						<a onclick="return confirm('삭제하시겠습니까?')"
@@ -44,6 +69,9 @@
 				</div>
 			</div>
 		</div>
+		<%
+			}
+		%>
 	</section>
 
 	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
