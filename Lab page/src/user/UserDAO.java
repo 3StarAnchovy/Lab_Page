@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
 public class UserDAO {
 
 	// dao : 데이터베이스 접근 객체의 약자로서
@@ -20,7 +19,8 @@ public class UserDAO {
 
 	public UserDAO() { // 생성자 실행될때마다 자동으로 db연결이 이루어 질 수 있도록함
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/labpage?serverTimezone=UTC&useSSL=false"; // localhost:3306 포트는 컴퓨터설치된 mysql주소
+			String dbURL = "jdbc:mysql://localhost:3306/labpage?serverTimezone=UTC&useSSL=false"; // localhost:3306 포트는
+																									// 컴퓨터설치된 mysql주소
 			String dbID = "root";
 			String dbPassword = "1234";
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,8 +30,6 @@ public class UserDAO {
 		}
 
 	}
-
-
 
 	// 로그인을 시도하는 함수****
 
@@ -60,20 +58,23 @@ public class UserDAO {
 		}
 		return -2; // 데이터베이스 오류를 의미
 	}
-	
-	public int join(user user) { //회원가입
-		String SQL = "INSERT INTO USER VALUES (?,?,?)";
+
+	public int join(user user) { // 회원가입
+		String SQL = "INSERT INTO USER VALUES (?,?,?,?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user.getUserID());
 			pstmt.setString(2, user.getUserPassword());
 			pstmt.setString(3, user.getUserName());
+			pstmt.setInt(4, 1); // userPower
+			pstmt.setString(5, user.getUserprofileName());
+			pstmt.setString(6, user.getUserprofileRealName());
+
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return -1; // DB 오류
 	}
-	
-	
+
 }

@@ -19,8 +19,14 @@
 			<h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
 		</div>
 
-		<form method="post" action="./JoinAction.jsp">
+		<form enctype="multipart/form-data" method="post"
+			action="./JoinAction.jsp">
+			<!-- 여기 한번 더 수정 //지민 -->
 			<!-- join form -->
+			<div class="form-group">
+				<label>프로필 이미지</label> <input type="file" name="file"
+					class="form-control" maxlength="2048">
+			</div>
 			<div class="form-group">
 				<label>아이디</label> <input type="text" name="userID"
 					class="form-control" placeholder="ID">
