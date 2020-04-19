@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class UserDAO {
 
@@ -77,4 +78,27 @@ public class UserDAO {
 		return -1; // DB 오류
 	}
 
+	public ArrayList<user> getUserProfile(String userID)
+	{
+		ArrayList<user> list = new ArrayList<user>();
+		String SQL = "SELECT * FROM USER WHERE userID LIKE ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				user User = new user();
+				User.setUserID(rs.getString(1));
+				User.setUserName(rs.getString(3)); //빈즈 세팅
+				User.setUserprofileName(rs.getString(5));
+				list.add(User);
+				System.out.println("hi beans");
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

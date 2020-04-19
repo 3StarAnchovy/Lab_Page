@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -11,6 +12,13 @@
 </head>
 <body>
 	<jsp:include page="/navbar.jsp" />
+	<%
+		String userID = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+		System.out.println("gasdf");
+	%>
 
 	<section class="container mt-3" style="max-width: 560px;">
 		<!-- mt-3 //위쪽으로 마진 3만큼(공백) -->
@@ -18,13 +26,27 @@
 			<h1 style="text-align: center;">환영합니다!</h1>
 			<p style="text-align: center;">Fanta 연구실 프로젝트 입니다.</p>
 		</div>
-		<div class="container">
-			<p align="center">
-				<img width="75" height="75"
-					src="./resources/images/AlbumImages/Example.PNG"
-					style="clear: both;" />
-			<p style="text-align: center;">정지혁님 안녕하세요.</p>
-		</div>
+		<c:choose>
+			<c:when test="${empty userID }">
+				<div class="container">
+					<p align="center">
+						<img width="75" height="75"
+							src="./resources/images/AlbumImages/Example.PNG"
+							style="clear: both;" />
+					<p style="text-align: center;">guest님 안녕하세요.</p>
+				</div>
+			</c:when>
+			<c:otherwise>
+			<%String src="upload/"+(String)session.getAttribute("userProfileName"); %>
+				<div class="container">
+					<p align="center">
+						<img width="75" height="75"
+							src=<%=src%>
+							<%System.out.println(src); %>
+							style="clear: both;" />
+					<p style="text-align: center;"><%=(String) session.getAttribute("userName") %>님 안녕하세요.</p>
+			</c:otherwise>
+		</c:choose>
 
 
 		<div class="container">
