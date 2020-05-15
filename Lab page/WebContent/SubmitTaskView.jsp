@@ -38,27 +38,37 @@
 <div class="card bg-light mt-3">
 	<div class="card-header bg-light">
 		<div class="row">
-			<div class="col-8 text-left"><%=task.getSubmitTaskUserName() %>&nbsp; |  <small><%=task.getSubmitTaskDate().substring(0,11)%></small></div>
+			<div class="col-8 text-left"><%=task.getSubmitTaskUserName() %>&nbsp;|&nbsp;<small><%=task.getSubmitTaskDate().substring(0,11)%></small></div>
 		</div>
 	</div>
 	<div class="card-body">
 		<h4 class="Task-title"><%=task.getSubmitTaskTitle() %></h4>
 		<p class="Task-content"><%=task.getSubmitTaskContent() %></p>
+		<div class="row">
 		<%
-			if(user.getUserPower()==1 | user.getUserPower()==2){
+			if(user.getUserPower()==1 || user.getUserPower()==2){
+				if(task.getConfirm()==0){
 		%>
-		<input type="radio" style="color:#000000" onclick="Confirm()"><strong>검사 완료</strong>
-		
-		<script type="text/javascript">  	 	
-			function Confirm() {
-        			taskDAO.Cnfirm(<%=SubmitTaskID%>);
-        			script.println("alert('검사를 완료했습니다.')");
-			}
-    	</script>
-    	
+			<div class="col-12" style="text-align:right">
+				<a onclick="return confirm('승인 하시겠습니까?')" href="SubmitTaskConfirm.jsp?SubmitTaskID=<%=SubmitTaskID%>" style="color:#000000"><strong>확인 완료&raquo;</strong></a>
+			</div>
+		<%
+				}else{
+		%>
+			<div class="col-12" style="text-align:right">
+				<p>승인이 완료된 게시물 입니다.
+			</div>		
+		<% 
+				}
+			}else{
+		%>
+			<div class="col-12" style="text-align:right">
+				<p>승인 권한이 없습니다.
+			</div>	
 		<%
 			}
 		%>
+		</div>
 	</div>
 </div>
 <hr>
