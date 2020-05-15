@@ -80,9 +80,16 @@
 			for(int i=0 ; i<list.size();i++){
  		%>
  		<tr>
- 			<td style="text-align:left; font-size:13px;"><%=list.get(i).getSubmitTaskUserName()%></td>
- 			<td style="text-align:left;"><a href="SubmitTaskView.jsp?SubmitTaskID=<%=list.get(i).getSubmitTaskID() %>" style="color:#000000; font-size:13px;"><%=list.get(i).getSubmitTaskTitle()%></a></td>
- 			<td style="font-size:13px; text-align:right;"><%=list.get(i).getSubmitTaskDate().substring(0,11)+ "  " + list.get(i).getSubmitTaskDate().substring(11,13)+" : "+list.get(i).getSubmitTaskDate().substring(14,16)%></td>
+ 			<td style="text-align:left; font-size:14px;"><%=list.get(i).getSubmitTaskUserName()%></td>
+ 			<td style="text-align:left;  font-size:14px;"><a href="SubmitTaskView.jsp?SubmitTaskID=<%=list.get(i).getSubmitTaskID() %>" style="color:#000000;"><%=list.get(i).getSubmitTaskTitle()%></a></td>
+ 			<td style="font-size:14px; text-align:right;"><%=list.get(i).getSubmitTaskDate().substring(0,11)+ "  " + list.get(i).getSubmitTaskDate().substring(11,13)+" : "+list.get(i).getSubmitTaskDate().substring(14,16)%></td>
+ 			<%
+ 				if(list.get(i).getConfirm()==1){
+ 			%>
+ 			<td style="text-align:right;"><img src='./resources/images/cheak.png' style="height:30px; width:50px;"></img>
+ 			<%
+				}
+ 			%>
  		</tr>
  		<%
 			}
@@ -91,11 +98,11 @@
  	 <%
  		if(pageNumber!=1){
  	%>
- 			<a href="Notice.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn=success btn-arraw-right" style="color:#000000;">이전</a>
+ 			<a href="TaskView.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn=success btn-arraw-right" style="color:#000000;">이전</a>
  	<%
  		} if(submittaskDAO.nextPage(pageNumber +1)){
  	%>
- 			<a href="Notice.jsp?pageNumber=<%=pageNumber + 1%>" class="btn btn=success btn-arraw-right" style="color:#000000;">다음</a>
+ 			<a href="TaskView.jsp?pageNumber=<%=pageNumber + 1%>" class="btn btn=success btn-arraw-right" style="color:#000000;">다음</a>
  	<%
  		}
  	%>
