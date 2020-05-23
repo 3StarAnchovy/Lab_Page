@@ -34,7 +34,6 @@
     }
 %>
 <jsp:include page="/navbar.jsp" />
-	
 <section style="min-height:420px;">
 	<form method="get" action="./Index.jsp" class="form-inline mt-3">
 		<input type="text" name="search" class="form-control mx-1 mt-2" placeholder="내용을 입력하세요.">
@@ -52,15 +51,16 @@
 		<%
 			}
 		%>
-	</form>
-	<aside class="mt-4 ml-4" style="float:left; width:50px;">
+	</form>	
+	<hr>
+	<aside class="mt-4 ml-4" style="float:left; width:80px;">
 	<h3>Category</h3>
 	<ul>
-		<li style="align:center;"><a href="Code.jsp?CodeType=C">C</a></li>
-		<li style="align:center;"><a href="Code.jsp?CodeType=JAVA">JAVA</a></li>
-		<li style="align:center;"><a href="Code.jsp?CodeType=JSP">JSP</a></li>
-		<li style="align:center;"><a href="Code.jsp?CodeType=HTML">HTML</a></li>
-		<li style="align:center;"><a href="Code.jsp?CodeType=etc">etc</a></li>
+		<li style="text-align:left;"><a href="Code.jsp?CodeType=C">C</a></li>
+		<li style="text-align:left;"><a href="Code.jsp?CodeType=JAVA">JAVA</a></li>
+		<li style="text-align:left;"><a href="Code.jsp?CodeType=JSP">JSP</a></li>
+		<li style="text-align:left;"><a href="Code.jsp?CodeType=HTML" style="font-size:15px">HTML</a></li>
+		<li style="text-align:left;"><a href="Code.jsp?CodeType=etc">etc</a></li>
 	</ul>
 	</aside>
 	<%
@@ -85,7 +85,7 @@
 	<div class="container card bg-light mt-3">
 		<div class="card-header bg-light">
 			<div class="row"> 
-				<div class="col-8 text-left"><a href="MyPage.jsp?userID=<%=list.get(i).getCodeManager() %>" style="color: #000000;"><%=list.get(i).getCodeManagerName()%></a>&nbsp;	<%=CodeType%><small><%=list.get(i).getCodeDate().substring(0,11)+ "  " + list.get(i).getCodeDate().substring(11,13)+" : "+list.get(i).getCodeDate().substring(14,16) %></small></div>
+				<div class="col-8 text-left"><a href="MyPage.jsp?userID=<%=list.get(i).getCodeManager() %>" style="color: #000000;"><%=list.get(i).getCodeManagerName()%></a>&nbsp;<small><%=list.get(i).getCodeDate().substring(0,11)+ "  " + list.get(i).getCodeDate().substring(11,13)+" : "+list.get(i).getCodeDate().substring(14,16) %></small></div>
 			</div>
 		</div>
 		<div class="card-body">
